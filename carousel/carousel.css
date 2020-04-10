@@ -1,0 +1,17 @@
+.x-carousel *{
+    box-sizing: border-box;
+    
+}
+.x-carousel{
+    overflow: hidden;
+    position: relative;
+}
+.x-carousel .container{
+    position: absolute;
+}
+
+.x-carousel .container .carousel-img{
+    display: inline-block;
+    object-fit: cover;
+    height: 100%;
+}
