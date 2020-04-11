@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
     <link rel="stylesheet" href="./carousel.css" />
   </head>
   <body>
@@ -13,14 +20,15 @@
     <div class="x-carousel" id="demo-carousel3"></div>
 
     <script src="./carousel.js"></script>
-
     <script>
       window.onload = function () {
-        let imgs = [
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Museum_Schn%C3%BCtgen_-_Innenaufnahmen-6428.jpg/1200px-Museum_Schn%C3%BCtgen_-_Innenaufnahmen-6428.jpg",
-          "https://i.ytimg.com/vi/aQmoojilbAw/maxresdefault.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Passage_Rijks_Museum_Amsterdam.JPG/1200px-Passage_Rijks_Museum_Amsterdam.JPG",
-        ];
+
+
+        let imgs = [];
+
+        for(let i=0;i<50;i++){
+            imgs.push(`https://picsum.photos/1080/540?random=${i}`);
+        }
 
         const carousel_demo = document.getElementById("demo-carousel");
 
@@ -28,8 +36,9 @@
         const config={
             carousel:carousel_demo,
             img_urls:imgs,
-            width:"40%",
-            height:"500px"
+            height:"100vh",
+            duration:2000,
+            animation_duration:1
         };
 
         var carousel=new Carousel(config);
@@ -42,53 +51,6 @@
         });
 
 
-
-        let imgs2 = [
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Museum_Schn%C3%BCtgen_-_Innenaufnahmen-6428.jpg/1200px-Museum_Schn%C3%BCtgen_-_Innenaufnahmen-6428.jpg",
-          "https://i.ytimg.com/vi/aQmoojilbAw/maxresdefault.jpg",
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Passage_Rijks_Museum_Amsterdam.JPG/1200px-Passage_Rijks_Museum_Amsterdam.JPG",
-        ].reverse();
-
-        const carousel_demo2 = document.getElementById("demo-carousel2");
-
-
-        const config2={
-            carousel:carousel_demo2,
-            img_urls:imgs2,
-            width:"60%",
-            height:"600px",
-            duration:6000,
-            animation_duration:0.5
-        };
-
-        var carousel2=new Carousel(config2);
-        carousel2.init();
-
-        carousel2.trigger(true);
-
-        window.addEventListener("resize",function(){
-            carousel2.resize();
-        });
-
-
-
-
-        const carousel_demo3 = document.getElementById("demo-carousel3");
-
-
-        const config3={
-            carousel:carousel_demo3,
-            img_urls:imgs2
-        };
-
-        var carousel3=new Carousel(config3);
-        carousel3.init();
-
-        carousel3.trigger(true);
-
-        window.addEventListener("resize",function(){
-            carousel3.resize();
-        });
       };
     </script>
   </body>
